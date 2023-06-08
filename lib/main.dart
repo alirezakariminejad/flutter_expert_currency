@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ex_currency_application/screens/screens_helper/theme_switcher_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
@@ -25,7 +26,13 @@ class _ExpCurrencyState extends State<ExpCurrency> {
       home: Directionality(
         textDirection: TextDirection.ltr,
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            title: Text('Expert Currency'),
+            centerTitle: true,
+            actions: [
+              ThemeSwitcherHelper(),
+            ],
+          ),
           body: Center(
             child: Text('home'),
           ),
