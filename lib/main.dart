@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
   runApp(const ExpCurrency());
 }
 
@@ -15,9 +21,14 @@ class _ExpCurrencyState extends State<ExpCurrency> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('home'),
+      debugShowCheckedModeBanner: false,
+      home: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Scaffold(
+          appBar: AppBar(),
+          body: Center(
+            child: Text('home'),
+          ),
         ),
       ),
     );
